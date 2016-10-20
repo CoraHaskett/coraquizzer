@@ -1,5 +1,7 @@
-echo $1
-name=$1
-echo $name
-#!/bin/bash
-curl -s "http://api.openweathermap.org/data/2.5/weather?q=Minneapolis,us&units=imperial&APPID=cb2b567c1c70fe5271ad298b5fec613f"
+read weatherapi_key <<< $(cat weatherapi_key)
+curl -s "http://api.openweathermap.org/data/2.5/weather?q=Minneapolis,us&units=imperial&APPID=$weatherapi_key"
+#while [ 1 == 1 ]
+#do 
+   #!/bin/bash
+   #sleep 600
+#done 
