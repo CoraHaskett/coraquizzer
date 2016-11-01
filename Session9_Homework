@@ -1,0 +1,11 @@
+er@ip-172-31-43-186 coraquizzer]$ read myname <<< $(echo cora)
+[ec2-user@ip-172-31-43-186 coraquizzer]$ echo $myname
+cora
+
+[ec2-user@ip-172-31-43-186 coraquizzer]$ read currenttime <<< $(date)
+[ec2-user@ip-172-31-43-186 coraquizzer]$ echo $currenttime
+Wed Oct 26 09:36:30 EDT 2016
+
+[ec2-user@ip-172-31-43-186 coraquizzer]$ read windspeed winddeg  <<< $(cat weather.sample.json | jq '.wind.speed,.wind.deg')
+[ec2-user@ip-172-31-43-186 coraquizzer]$ echo $windspeed $winddeg
+8.43 255.006
