@@ -1,4 +1,5 @@
-d -p "How many days of samples: "               days
+#!/bin/bash
+read -p "How many days of samples: "               days
 read -p "N) New sample or A) Append to previous: " file_op
 
 if [ "$file_op" == "N" ]; then rm -f /coraquizzer/weather.sample.json; fi
