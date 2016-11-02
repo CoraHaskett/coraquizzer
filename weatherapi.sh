@@ -13,7 +13,7 @@ for i in $(seq 1 $samples); do
     jq '.dt,.main.temp,.main.humidity')
 
   if [ $epoch -gt 1477570797 ]; then
-    read epochtime <<<$(epoch -d @$epoch +'%m/%d/%Y %H:%M')
+    read epochtime <<<$(date -d @$epoch +'%m/%d/%Y %H:%M')
     echo "$epochtime temp=$temp humidity=$humidity"
     echo $epochtime,$temp,$humidity >> /tmp/weather_data.csv
   else 
