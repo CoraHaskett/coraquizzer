@@ -1,6 +1,9 @@
 #!/bin/bash
-read -p "How many days of samples: "               days
-read -p "N) New sample or A) Append to previous: " file_op
+#read -p "How many days of samples: "               days
+#read -p "N) New sample or A) Append to previous: " file_op
+
+days=$1
+file_op=$2
 
 if [ "$file_op" == "N" ]; then rm -f /coraquizzer/weather.sample.json; fi
 read samples <<< $(($days*24))
@@ -15,12 +18,12 @@ for i in $(seq 1 $samples); do
   if [ $epoch -gt 1477570797 ]; then
     read epochtime <<<$(date -d @$epoch +'%m/%d/%Y %H:%M')
     echo "$epochtime temp=$temp humidity=$humidity"
-    echo $epochtime,$temp,$humidity >> /tmp/weather_data.csv
+    echo $epochtime,$temp,$humidity >> ~/tmp/weather_data.csv 
   else 
     echo "$(epoch +'%m/%d/%Y %H:%M') bad sample"
   fi
 
-  sleep 60
+  sleep 1800
 done
 
 #read date temp humidity <<< $(cat weather.json  | jq '.dt,.main.temp,.main.humidity')
