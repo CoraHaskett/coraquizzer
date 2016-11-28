@@ -11,7 +11,21 @@ function round {
 function maxmin {
 
   max=$(round ${temp_array[0]})
-  min=$max
+  min=$(round ${temp_array[0]})
+for e in ${temp_array[0]}
+do
+     if [ "$e" -gt "$max" ]
+     then
+        max="$e"
+     fi
+
+     if [ "$e" -lt "$min" ]
+     then
+        min="$e"
+echo "max= $max"
+echo "min= $min"
+     fi
+done
 }
 
 declare -a temp_array
@@ -29,3 +43,4 @@ done
 echo "sum= $sum"
 echo "samples= $samples"
 average
+maxmin
