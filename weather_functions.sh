@@ -16,18 +16,18 @@ function maxmin {
 
 for e in ${temp_array[0]}
 do
-     if [ $(round ${temp_array[0]}) -gt $(round ${temp_array[0]}) ]
+     if [ $e -gt $max ]
      then
-        e=$(round ${temp_array[0]})
+     max=$e 
      fi
 
-     if [ $(round ${temp_array[0]}) -lt $(round ${temp_array[0]}) ]
+     if [ $e -lt $min ]
      then
-        e=$(round ${temp_array[0]})
-
+        min=$e
+     fi
 echo "max= $max"
 echo "min= $min"
-     fi
+     
 done
 }
 

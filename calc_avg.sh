@@ -1,9 +1,10 @@
 echo "What numbers would you like the average of?"
-read $1 $2 $3 
+read first second third 
 
-sum=$((echo "$1 + $2 + $3"))
-echo $sum
+sum=$(( first + second + third ))
+echo sum=$sum
 
-echo average= $(echo "scale=1; $sum / 3")
+avg=$(($sum / 3))
+echo avg=$avg
 
-
+ 
