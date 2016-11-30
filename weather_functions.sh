@@ -14,21 +14,22 @@ function maxmin {
   min=$(round ${temp_array[0]})
   e=$(round ${temp_array[0]})
 
-for e in ${temp_array[0]}
+for e in ${temp_array[@]}
 do
-     if [ $e -gt $max ]
+     if [ $(round $e) -gt $(round $max) ]
      then
      max=$e 
      fi
 
-     if [ $e -lt $min ]
+     if [ $(round $e) -lt $(round $min) ]
      then
         min=$e
      fi
+done
+
 echo "max= $max"
 echo "min= $min"
      
-done
 }
 
 declare -a temp_array
