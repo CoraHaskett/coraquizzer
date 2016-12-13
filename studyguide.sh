@@ -55,3 +55,72 @@ cora
 
 [ec2-user@ip-172-31-43-186 coraquizzer]$ echo "scale=2; 2.5/2" | bc
 1.25
+
+
+[ec2-user@ip-172-31-43-186 coraquizzer]$ cat weather.sample.json
+{"coord":{"lon":-93.26,"lat":44.98},"weather":[{"id":800,"main":"Clear","description":"clear sky","icon":"01n"}],"base":"stations","main":{"temp":54.38,"pressure":991.8,"humidity":88,"temp_min":54.38,"temp_max":54.38,"sea_level":1025.18,"grnd_level":991.8},"wind":{"speed":8.43,"deg":255.006},"clouds":{"all":0},"dt":1476840436,"sys":{"message":0.0256,"country":"US","sunrise":1476880484,"sunset":1476919217},"id":5037649,"name":"Minneapolis","cod":200}
+[ec2-user@ip-172-31-43-186 coraquizzer]$ cat weather.sample.json | jq
+{
+  "coord": {
+    "lon": -93.26,
+    "lat": 44.98
+  },
+  "weather": [
+    {
+      "id": 800,
+      "main": "Clear",
+      "description": "clear sky",
+      "icon": "01n"
+    }
+  ],
+  "base": "stations",
+  "main": {
+    "temp": 54.38,
+    "pressure": 991.8,
+    "humidity": 88,
+    "temp_min": 54.38,
+    "temp_max": 54.38,
+    "sea_level": 1025.18,
+    "grnd_level": 991.8
+  },
+  "wind": {
+    "speed": 8.43,
+    "deg": 255.006
+  },
+  "clouds": {
+    "all": 0
+  },
+  "dt": 1476840436,
+  "sys": {
+    "message": 0.0256,
+    "country": "US",
+    "sunrise": 1476880484,
+    "sunset": 1476919217
+  },
+  "id": 5037649,
+  "name": "Minneapolis",
+  "cod": 200
+}
+[ec2-user@ip-172-31-43-186 coraquizzer]$ cat weather.sample.json | jq '.weather'
+[
+  {
+    "id": 800,
+    "main": "Clear",
+    "description": "clear sky",
+    "icon": "01n"
+  }
+]
+[ec2-user@ip-172-31-43-186 coraquizzer]$ cat weather.sample.json | jq '.wind.speed'
+8.43
+[ec2-user@ip-172-31-43-186 coraquizzer]$
+
+[ec2-user@ip-172-31-43-186 coraquizzer]$ cat weather_data.csv | awk -F',' '{print $2}'
+51.28
+51.28
+51.28
+50.47
+50.49
+50.36
+50.13
+50.13
+50.13
