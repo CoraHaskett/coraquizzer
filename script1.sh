@@ -2,10 +2,10 @@
 #a=$1
 #b=$2
 
-function myfunc {
-   echo param=$1
-}
-myfunc "Hello Mr. Fields"
+#function myfunc {
+   #echo param=$1
+#}
+#myfunc "Hello Mr. Fields"
 
 #read -p "enter variable c: " c
 #read -p "enter variable d: " d
